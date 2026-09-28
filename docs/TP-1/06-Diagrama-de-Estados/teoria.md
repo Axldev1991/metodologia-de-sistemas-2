@@ -56,3 +56,20 @@ $$\text{Evento}(\text{parámetros}) \; [\text{CondiciónGuard}] / \text{Acción}
 | **Dibujar estados con rectángulos de esquinas rectas** | Los rectángulos rectos corresponden a Clases o Componentes. | Usar obligatoriamente **rectángulos de esquinas redondeadas**. |
 | **Olvidar los corchetes en la Condición de Guarda** | Los corchetes `[ ]` son requeridos por el estándar UML para distinguir un Guard de un Evento. | Escribir siempre `[condicion == true]`. |
 | **Nombrar estados como verbos de acción** | Un estado es una *situación de espera*, no una tarea ejecutándose. | Usar participios/adjetivos (ej. `Almacenado`, no "Almacenar"). |
+
+---
+
+## 🔄 6. Ciclo de Vida y Máquina de Estados del Pedido ("Pedalea" - V1.0 a V1.3)
+
+En las especificaciones oficiales de los trabajos de cátedra (PDF V1.0 a V1.3), el objeto reactivo central es el **`Pedido`**:
+
+- **Estados Principales:** `En Espera` $\longrightarrow$ `Procesando` $\longrightarrow$ `Finalizado` / `Error`.
+
+- **Reglas Estrictas de Transición del Dominio:**
+  1. **Inicio (`●` $\rightarrow$ `En Espera`):** Disparado por la acción `crearPedido()`.
+  2. **Toma de Pedido (`En Espera` $\rightarrow$ `Procesando`):** El Encargado valida el pedido y cambia su estado a `Procesando`, iniciando simultáneamente la preparación en cocina.
+  3. **Conclusión (`Procesando` $\rightarrow$ `Finalizado`):** Se desencadena una vez completados **tanto** la preparación en cocina **como** el cálculo de descuento.
+  4. **Regla Especial de Cancelación (PDF V1.2 y V1.3):**
+     - La acción `cancelarPedido()` está permitida **únicamente desde el estado `Procesando`**.
+     - **Acción en Transición (`/ accion`):** `cancelarPedido() / incrementarCantidadMenusPorDia()`. Al cancelar desde el estado *Procesando*, se actualiza el stock devolviendo e incrementando la disponibilidad de menús del día.
+

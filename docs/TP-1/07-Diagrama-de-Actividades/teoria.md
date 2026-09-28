@@ -60,3 +60,22 @@ Las **Swimlanes** dividen visualmente el diagrama en columnas (ej. `Usuario`, `S
 | **Confundir Nodo de Decisión con FORK** | Un rombo de decisión elige **un solo camino**; un FORK ejecuta **todos los caminos en paralelo**. | Usar **Rombo `◇`** para condicionales `if` y **Barra negra `❚`** para concurrencia. |
 | **Olvidar el JOIN tras un FORK** | Si no se sincronizan las ramas en paralelo, el flujo continuará duplicado de manera indeterminada. | Cerrar siempre los flujos paralelos con una barra **JOIN `❚`**. |
 | **Acciones cruzando Swimlanes sin orden** | Las acciones deben quedar contenidas dentro de la columna responsable. | Ajustar la posición vertical/horizontal de la acción en su calle adecuada. |
+
+---
+
+## ⚡ 6. Flujo de Trabajo e Integración de Concurrencia en Cátedra ("Pedalea" - V1.3)
+
+En la versión V1.3 de las consignas oficiales, el Diagrama de Actividades de todo el sistema integra concurrencia explícita mediante swimlanes y barras de sincronización:
+
+### A. Swimlanes (Particiones de Responsabilidad)
+1. **`Cliente / Usuario`**: Realiza la búsqueda de menú por tipo/precio, solicita la creación o cancelación del pedido.
+2. **`Encargado`**: Recibe y valida el pedido, cambia el estado a *Procesando* y realiza la entrega final al cliente.
+3. **`Cocina / Restaurante`**: Prepara los platillos e incrementa el stock de menús si se produce una cancelación.
+4. **`Sistema (Descuentos)`**: Consulta el historial del usuario, compara la compra actual contra el promedio de las últimas 3 compras y aplica la bonificación del 20% si corresponde.
+
+### B. Notación de Concurrencia FORK / JOIN (PDF V1.3)
+- **Barra FORK (`❚`):** Una vez que el Encargado toma el pedido y pasa su estado a *Procesando*, la ejecución se bifurca en dos hilos paralelos:
+  - **Hilo 1 (Cocina):** Preparación del menú en la cocina del restaurante.
+  - **Hilo 2 (Sistema):** Consulta de historial y cálculo del descuento del 20% para usuarios en bicicleta.
+- **Barra JOIN (`❚`):** Ambos hilos convergen en la barra de sincronización `JOIN`. La entrega del pedido y la transición final al estado `Finalizado` **solo se ejecutan cuando se han completado exitosamente la preparación en cocina y el cálculo del descuento**.
+

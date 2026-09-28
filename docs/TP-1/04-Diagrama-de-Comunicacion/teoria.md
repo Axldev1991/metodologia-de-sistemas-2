@@ -54,3 +54,20 @@ Dentro del **Proceso Unificado (PU)**, se utiliza de forma alternativa o complem
 | **Poner la flecha grande al final de la línea del enlace** | Transforma la línea en una asociación dirigida o herencia, destruyendo la notación de enlace. | Mantener la línea del enlace limpia y poner una **flechita chica junto al texto del mensaje**. |
 | **Olvidar subrayar el nombre del objeto** | En UML, el subrayado `<u>:Objeto</u>` es obligatorio para denotar una *instancia* (objeto) y no una clase estática. | Subrayar siempre la etiqueta del rectángulo. |
 | **Olvidar los números de secuencia** | Sin los números `1:`, `2:`, `1.1:`, es imposible saber qué mensaje se envía primero. | Etiquetar cada mensaje con su número de secuencia exacto. |
+
+---
+
+## 📡 6. Grafo de Comunicación en el Dominio de Cátedra ("Pedalea")
+
+A diferencia del Diagrama de Secuencia, el **Diagrama de Comunicación** permite visibilizar el acoplamiento estructural entre las instancias del sistema **Pedalea**:
+
+- **Grafo de Enlaces:**
+  `<u>:Cliente</u>` $\longleftrightarrow$ `<u>:PedidosController</u>` $\longleftrightarrow$ `<u>:HistorialService</u>` $\longleftrightarrow$ `<u>:Pedido</u>`
+
+- **Secuencia Numerada de Invocación:**
+  1. `1: crearPedido(datos)` enviada de `<u>:Cliente</u>` a `<u>:PedidosController</u>`
+  2. `1.1: obtenerPromedio(idUsuario)` enviada de `<u>:PedidosController</u>` a `<u>:HistorialService</u>`
+  3. `1.1.1: consultarComprasAnteriores()` enviada de `<u>:HistorialService</u>` al repositorio de base de datos.
+  4. `1.2: aplicarDescuento(0.20)` enviada condicionalmente de `<u>:PedidosController</u>` a `<u>:Pedido</u>`.
+  5. `1.3: «return» confirmacion` de vuelta al cliente.
+

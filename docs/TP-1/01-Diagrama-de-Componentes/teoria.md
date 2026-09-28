@@ -58,3 +58,16 @@ Cualquier componente se puede reemplazar por otra versión (ej. cambiar un módu
 | **Conectar componentes directamente sin interfaces** | Genera acoplamiento fuerte y viola el encapsulamiento. | Usar conectores *Lollipop* (`◯`) y *Socket* (`⊂`). |
 | **Poner clases dentro del diagrama de componentes** | Mezcla el nivel de diseño de clases con el nivel arquitectónico modular. | Solo incluir componentes, subsistemas e interfaces. |
 | **Invertir el sentido de la flecha de dependencia** | La flecha punteada debe apuntar al módulo que **brinda el servicio**, no al consumidor. | Emisor (Cliente) `- - >` Receptor (Servicio). |
+
+---
+
+## 🏬 6. Aplicación Práctica al Dominio de Cátedra ("Pedalea" - V1.3)
+
+En el sistema de referencia de la materia (**Sistema Pedalea**), el Diagrama de Componentes organiza la arquitectura en subsistemas independientes desacoplados mediante interfaces provistas (`◯`) y requeridas (`⊂`):
+
+1. **`«component» ComponenteUI / AppWeb`**: Interfaz de usuario utilizada por Clientes y Encargados. Requiere de la API del controlador de pedidos.
+2. **`«component» PedidosService`**: Componente central de gestión de pedidos. Expone `◯ IPedido` y consume `⊂ IDescuento` e `⊂ ICocina`.
+3. **`«component» DescuentosService`**: Módulo encargado de calcular el 20% de descuento comparando el costo actual contra el promedio de las últimas 3 compras del cliente. Expone `◯ IDescuento`.
+4. **`«component» CocinaService`**: Módulo del restaurante que gestiona el stock de menús por día e inicia la preparación. Expone `◯ ICocina`.
+5. **`«component» HistorialRepository`**: Componente de persistencia para consultar compras pasadas. Expone `◯ IHistorial`.
+

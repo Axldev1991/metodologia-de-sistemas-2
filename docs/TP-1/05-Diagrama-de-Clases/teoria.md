@@ -78,3 +78,38 @@ El **Diagrama de Clases** es el diagrama pilar de la Orientación a Objetos. Mue
 | **Poner métodos en un Modelo del Dominio** | El modelo del dominio es conceptual, no incluye métodos de código. | Incluir métodos solo al crear el Diagrama de Clases de Diseño (DCD). |
 | **Confundir el rombo de Composición con Agregación** | Usar `◇` en vez de `◆` para relaciones de vida dependiente. | Usar rombo **negro relleno `◆`** cuando las partes mueren con el todo. |
 | **Invertir la flecha de herencia** | La flecha de herencia debe apuntar hacia el padre (superclase), no al hijo. | Apuntar el triángulo blanco hueco `──▷` a la Superclase. |
+
+---
+
+## 📦 6. Dominio de Clases de Cátedra ("Pedalea" - V1.0 a V1.3)
+
+En el Diagrama de Clases de Diseño (DCD) para el **Sistema Pedalea**, se destacan las siguientes clases y relaciones:
+
+- **`Usuario` (Clase Base / Abstracta):** `idUsuario: int`, `nombre: String`, `historialCompras: List<Pedido>`.
+- **`ClienteBicicleta` (Subclase / Herencia `──▷ Usuario`):** Incluye lógica específica para la aplicación del 20% de descuento cuando su compra actual supera el promedio de las últimas tres.
+- **`Pedido`:** `idPedido: int`, `montoTotal: double`, `estado: EstadoPedido` (`EnEspera`, `Procesando`, `Finalizado`, `Error`). Relación de composición `◆` con `ItemPedido`.
+- **`Menu`:** `idMenu: int`, `nombre: String`, `precio: double`, `tipoMenu` (`Vegetariano`, `Vegano`, `SinGluten`, `Tradicional`), `disponible: boolean`.
+- **`Restaurante`:** Contiene `Menu` mediante agregación `◇` y gestiona el stock diario.
+- **`Encargado`:** Responsable de invocar la operación `procesarPedido()` y `confirmarEntrega()`.
+
+---
+
+## 🏭 7. Integración de Patrones Creacionales: Patrón Factory (Clase 05 - Cátedra UTN)
+
+En la Clase 05 de la materia se evalúa la integración de patrones de diseño GoF (*Gang of Four*), específicamente el **Patrón Factory / Factory Method**:
+
+### A. Caso de Estudio de Cátedra: "Reinos de Algoria"
+El ejercicio oficial modela un Gremio que gestiona personajes (`Guerrero` y `Mago`):
+- **`Personaje` (Clase Abstracta / Superclase):** `idJugador: int`, `nombre: String`, `apodo: String`, `anioCreacion: int`. Define el método abstracto `mostrarValorCombate()`.
+- **`Guerrero` (Subclase):** `poderAtaqueBase`, `victoriasDuelo`, `bonoPorVictoria`. `fuerzaTotal = max(poderAtaqueBase, victorias * bono)`.
+- **`Mago` (Subclase):** `reservaManaBase`. Calcula la bonificación según la antigüedad:
+  - $< 3$ años: $0\%$ extra.
+  - $3 \text{ a } 6$ años: $+4\%$ de maná extra sobre la base.
+  - $> 6$ años: $+12\%$ de maná extra sobre la base.
+- **`PersonajeFactory` (Fábrica Concreta / Creacional):** Encargada de instanciar guerreros o magos según los parámetros recibidos.
+
+### B. Justificación Técnica y Beneficios según Larman y la Cátedra
+1. **Desacoplamiento:** La clase `Gremio` no depende directamente de las clases concretas `Guerrero` o `Mago`, sino de la abstracción `Personaje` y de `PersonajeFactory`.
+2. **Encapsulamiento Creacional:** Oculta la complejidad de los constructores y la lógica de inicialización.
+3. **Principio Abierto/Cerrado (OCP):** Permite añadir nuevos tipos de personajes (ej. `Arquero`) creando una nueva subclase sin modificar el código de `Gremio`.
+

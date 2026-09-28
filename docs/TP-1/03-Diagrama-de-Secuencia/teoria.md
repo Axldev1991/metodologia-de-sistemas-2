@@ -60,3 +60,26 @@ Para cumplir con los requerimientos de la cátedra y Larman, las condiciones de 
 | **Usar flecha sólida para el mensaje de retorno** | La flecha sólida indica una invocación de método nueva, no una devolución. | Usar **línea punteada** con flecha abierta (`- - >`). |
 | **No incluir bloques de activación** | Sin el bloque de activación no se comprende qué objeto posee el foco de control ejecutivo. | Dibujar la cajita vertical sobre la línea punteada mientras el método esté activo. |
 | **Cruzar líneas de tiempo hacia arriba** | El tiempo siempre fluye hacia abajo; una flecha horizontal ascendente es conceptualmente imposible. | Dibujar los mensajes estrictamente descendentes. |
+
+---
+
+## 🚴 6. Escenarios Prácticos de Secuencia de Cátedra ("Pedalea" - V1.1 a V1.3)
+
+En las guías y consignas oficiales de la cátedra se requiere el modelado estricto de dos escenarios clave de interacción:
+
+### Escenario A: Cálculo de Precio Final con Descuento (Usuario en Bicicleta)
+1. El `:Cliente` invoca `crearPedido(datosPedido)` sobre `:PedidosController`.
+2. `:PedidosController` consulta al `:HistorialService` enviando `obtenerUltimas3Compras(idUsuario)`.
+3. `:HistorialService` calcula el `promedio` de los montos de las últimas 3 compras.
+4. Marco `alt [montoActual > promedio]`:
+   - Rama `true`: `:PedidosController` invoca `aplicarDescuento(0.20)` sobre el objeto `:Pedido` actual.
+   - Rama `false` / `else`: Mantiene el precio sin bonificación.
+5. Retorno `- - >` del precio final calculado hacia el `:Cliente`.
+
+### Escenario B: Modificación de Pedido por el Usuario
+1. El `:Cliente` invoca `modificarPedido(idPedido, nuevosItems)` sobre `:PedidosController`.
+2. `:PedidosController` solicita a `:Menu` la verificación de disponibilidad (`validarDisponibilidad()`).
+3. Marco `alt`:
+   - **Si `disponible == false`**: Se emite la notificación de error hacia el cliente y se cancela la modificación.
+   - **Si `disponible == true`**: Se actualizan los ítems del pedido y se recalcula el total.
+
