@@ -1,10 +1,10 @@
 <mxfile host="65bd71144e">
     <diagram id="diagram_1" name="Diagrama de Componentes - Gestor de Archivos">
-        <mxGraphModel dx="446" dy="230" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1300" pageHeight="900" math="0" shadow="0">
+        <mxGraphModel dx="559" dy="675" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1300" pageHeight="900" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="sys" value="Sistema Gestor de Archivos" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=30;fillColor=#ffffff;fontColor=#111111;strokeColor=#444444;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+                <mxCell id="sys" value="Sistema Gestor de Archivos" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=30;fillColor=#ffffff;fontColor=#111111;strokeColor=#444444;fontStyle=0;fontSize=13;swimlaneLine=1;" parent="1" vertex="1">
                     <mxGeometry x="248" y="89" width="700" height="460" as="geometry"/>
                 </mxCell>
                 <mxCell id="comp_gestor" value="«component»&#10;&lt;b&gt;Módulo de Gestión y Búsqueda&lt;/b&gt;&#10;&lt;i&gt;(Creación, Búsqueda, Filtros, Visibilidad)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontStyle=0;fontSize=11;" parent="sys" vertex="1">
@@ -44,7 +44,7 @@
                     <mxGeometry width="50" height="50" relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.half_circle;rotation=90;" vertex="1" parent="sys">
-                    <mxGeometry x="32" y="225.5" width="18" height="9" as="geometry"/>
+                    <mxGeometry x="31.75" y="225.75" width="18" height="8.5" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="" style="endArrow=none;endSize=10;endFill=0;html=1;rounded=0;strokeColor=#d79b00;strokeWidth=2;exitX=0.8;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="sys" source="comp_gestor">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
