@@ -1,82 +1,55 @@
-<mxfile host="Electron" modified="2026-09-27T23:30:00.000Z" agent="Antigravity" version="21.6.8" type="device">
-  <diagram id="diagram_estados" name="Diagrama de Estados - Acciones del Usuario">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        
-        <!-- Estado Inicial -->
-        <mxCell id="init" value="" style="ellipse;html=1;shape=startState;fillColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="40" y="240" width="30" height="30" as="geometry" />
-        </mxCell>
-        
-        <!-- Estado Creada -->
-        <mxCell id="st_creada" value="&lt;b&gt;Creada&lt;/b&gt;" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="180" y="230" width="130" height="50" as="geometry" />
-        </mxCell>
-        
-        <!-- Estado En espera -->
-        <mxCell id="st_espera" value="&lt;b&gt;En espera&lt;/b&gt;" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="420" y="230" width="130" height="50" as="geometry" />
-        </mxCell>
-
-        <!-- Estado En proceso -->
-        <mxCell id="st_proceso" value="&lt;b&gt;En proceso&lt;/b&gt;" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="660" y="230" width="130" height="50" as="geometry" />
-        </mxCell>
-
-        <!-- Estado Finalizada (Éxito) -->
-        <mxCell id="st_finalizada" value="&lt;b&gt;Finalizada&lt;/b&gt;" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="900" y="130" width="130" height="50" as="geometry" />
-        </mxCell>
-
-        <!-- Estado Con error (Fallo) -->
-        <mxCell id="st_error" value="&lt;b&gt;Con error&lt;/b&gt;" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="900" y="330" width="130" height="50" as="geometry" />
-        </mxCell>
-
-        <!-- Estado Final a la derecha -->
-        <mxCell id="final" value="" style="ellipse;html=1;shape=endState;fillColor=#ffffff;strokeColor=#ffffff;" vertex="1" parent="1">
-          <mxGeometry x="1100" y="240" width="30" height="30" as="geometry" />
-        </mxCell>
-
-        <!-- Transiciones con Eventos, Condiciones y Acciones limpias -->
-        <!-- Start -> Creada -->
-        <mxCell id="t0" value="solicitarAccion()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" edge="1" parent="1" source="init" target="st_creada">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- Creada -> En espera -->
-        <mxCell id="t1" value="encolarAccion() /&#xa;asignarID()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" edge="1" parent="1" source="st_creada" target="st_espera">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- En espera -> En proceso -->
-        <mxCell id="t2" value="despacharAccion() /&#xa;reservarRecursos()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" edge="1" parent="1" source="st_espera" target="st_proceso">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- En proceso -> Finalizada -->
-        <mxCell id="t3" value="ejecutar() [valido == true] /&#xa;notificarResultadoExitoso()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" edge="1" parent="1" source="st_proceso" target="st_finalizada">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- En proceso -> Con error -->
-        <mxCell id="t4" value="ejecutar() [espacioInsuficiente == true] /&#xa;generarAvisoError()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#b85450;fontColor=#b85450;labelBackgroundColor=#111111;spacing=4;" edge="1" parent="1" source="st_proceso" target="st_error">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- Finalizada -> Final -->
-        <mxCell id="t5" value="cerrarAccion()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" edge="1" parent="1" source="st_finalizada" target="final">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- Con error -> Final -->
-        <mxCell id="t6" value="registrarErrorEnLog()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" edge="1" parent="1" source="st_error" target="final">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e">
+    <diagram id="diagram_estados" name="Diagrama de Estados - Acciones del Usuario">
+        <mxGraphModel dx="1377" dy="1283" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="init" value="" style="ellipse;html=1;shape=startState;fillColor=#ffffff;strokeColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="240" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="st_creada" value="&lt;b&gt;Creada&lt;/b&gt;" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="230" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="st_espera" value="&lt;b&gt;En espera&lt;/b&gt;" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="230" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="st_proceso" value="&lt;b&gt;En proceso&lt;/b&gt;" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="230" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="st_finalizada" value="&lt;b&gt;Finalizada&lt;/b&gt;" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="900" y="130" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="st_error" value="&lt;b&gt;Con error&lt;/b&gt;" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="900" y="330" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="final" value="" style="ellipse;html=1;shape=endState;fillColor=#ffffff;strokeColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="1100" y="240" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="t0" value="solicitarAccion()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" parent="1" source="init" target="st_creada" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="t1" value="encolarAccion() /&#10;asignarID()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" parent="1" source="st_creada" target="st_espera" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="t2" value="despacharAccion() /&#10;reservarRecursos()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" parent="1" source="st_espera" target="st_proceso" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="t3" value="ejecutar() [valido == true] /&#10;notificarResultadoExitoso()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" parent="1" source="st_proceso" target="st_finalizada" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="t4" value="ejecutar() [espacioInsuficiente == true] /&#10;generarAvisoError()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#b85450;fontColor=#b85450;labelBackgroundColor=#111111;spacing=4;" parent="1" source="st_proceso" target="st_error" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="t5" value="cerrarAccion()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" parent="1" source="st_finalizada" target="final" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="t6" value="registrarErrorEnLog()" style="endArrow=open;endSize=12;html=1;rounded=0;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" parent="1" source="st_error" target="final" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="ACCION DE USUARIO" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=27;fontFamily=Courier New;" vertex="1" parent="1">
+                    <mxGeometry x="384" y="-26" width="328" height="196" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>
