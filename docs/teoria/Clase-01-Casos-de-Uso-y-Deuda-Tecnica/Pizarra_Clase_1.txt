@@ -1,0 +1,44 @@
+CU1
+
+Flujo Principal:
+   1.-
+   2.-
+   3.-
+   4.- El Sistema valida que el tipo de resumen es apto para imprimir.
+   5.- El sistema invoca al CU Imprimir Resumen.
+   6.- El sistema valida el estado final de la impresión. 
+
+
+CU2
+
+CU Imprimir Resumen
+
+CU3
+Precondición: Se debe validar que el usuario este autenticado.
+Flujo Crear Usuario:
+   1.- 
+   2.-
+   3.-
+   4.- 
+
+
+CU4
+Autenticar Usuario
+...
+..
+
+Pedalea, ponete en movimiento
+
+CU
+1.- Ver Descuento  ->  Cliente, Restaurante
+2.- Validar Pedido ->  Encargado
+3.- Crear Pedido   ->  Cliente
+4.- Buscar menú por tipo   ->  Cliente
+4.- Buscar Menú Por precio   ->  Cliente
+5.- Crear Menú     ->  Restaurante
+6.- Eliminar Menú  ->  Restaurante
+7.- Modificar Menú  ->  Restaurante
+8.- Actualizar Estado Menú ->  Restaurante
+7.- Modificar Menú  -> (Actualizar Estado Menú) Restaurante
+ 
+

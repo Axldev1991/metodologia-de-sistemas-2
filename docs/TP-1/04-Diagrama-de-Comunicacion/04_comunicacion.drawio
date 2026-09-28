@@ -1,0 +1,53 @@
+<mxfile host="Electron" modified="2026-09-27T23:26:30.000Z" agent="Antigravity" version="21.6.8" type="device">
+  <diagram id="diagram_comm" name="Diagrama de Comunicación">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Objetos participantes (Espaciado amplio para evitar superposición) -->
+        <mxCell id="obj_usr" value="&lt;u&gt;:Usuario&lt;/u&gt;" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=4;fontColor=#000000;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="obj_ui" value="&lt;u&gt;:InterfazUsuario&lt;/u&gt;" style="html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=4;fontColor=#000000;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="360" y="80" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obj_gestor" value="&lt;u&gt;:GestorArchivos&lt;/u&gt;" style="html=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=4;fontColor=#000000;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="720" y="80" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obj_storage" value="&lt;u&gt;:ModuloAlmacenamiento&lt;/u&gt;" style="html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=4;fontColor=#000000;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="720" y="320" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="obj_so" value="&lt;u&gt;:SistemaOperativo&lt;/u&gt;" style="html=1;whiteSpace=wrap;fillColor=#f3d9fa;strokeColor=#be4bdb;fontStyle=4;fontColor=#000000;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="320" y="320" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Enlaces y Mensajes Numerados con etiquetas legibles -->
+        <!-- Enlace 1: Usuario <-> InterfazUsuario -->
+        <mxCell id="link1" value="1: solicitarCreacionArchivo(datos) ➔" style="endArrow=none;html=1;rounded=0;fontStyle=1;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" edge="1" parent="1" source="obj_usr" target="obj_ui">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Enlace 2: InterfazUsuario <-> GestorArchivos -->
+        <mxCell id="link2" value="2: procesarCreacion(nombre, tipo, datos) ➔&#xa;5: «return» notificarResultado() ⬅" style="endArrow=none;html=1;rounded=0;fontStyle=1;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" edge="1" parent="1" source="obj_ui" target="obj_gestor">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Enlace 3: GestorArchivos <-> ModuloAlmacenamiento -->
+        <mxCell id="link3" value="3: almacenarYClasificar(archivo) ⬇&#xa;4: «return» resultadoAlmacenamiento() ⬆" style="endArrow=none;html=1;rounded=0;fontStyle=1;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" edge="1" parent="1" source="obj_gestor" target="obj_storage">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Enlace 4: ModuloAlmacenamiento <-> SistemaOperativo -->
+        <mxCell id="link4" value="3.1: validarEspacioYEscritura() ⬅" style="endArrow=none;html=1;rounded=0;fontStyle=1;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;spacing=4;" edge="1" parent="1" source="obj_storage" target="obj_so">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

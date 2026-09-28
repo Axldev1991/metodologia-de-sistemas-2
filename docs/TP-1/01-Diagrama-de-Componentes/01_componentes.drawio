@@ -1,0 +1,58 @@
+<mxfile host="Electron" modified="2026-09-27T23:26:00.000Z" agent="Antigravity" version="21.6.8" type="device">
+  <diagram id="diagram_1" name="Diagrama de Componentes - Gestor de Archivos">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Contenedor del Sistema -->
+        <mxCell id="sys" value="Sistema Gestor de Archivos" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=25;fillColor=#ffffff;fontColor=#111111;strokeColor=#666666;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="260" y="60" width="540" height="420" as="geometry" />
+        </mxCell>
+        
+        <!-- Componente Externo: UI -->
+        <mxCell id="comp_ui" value="«component»&#xa;&lt;b&gt;Interfaz de Usuario&lt;/b&gt;&#xa;&lt;i&gt;(Cliente / GUI / CLI)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="230" width="170" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Componente 1: Gestión y Búsqueda -->
+        <mxCell id="comp_gestor" value="«component»&#xa;&lt;b&gt;Módulo de Gestión y Búsqueda&lt;/b&gt;&#xa;&lt;i&gt;(Creación, Búsqueda, Filtros, Visibilidad)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontStyle=0;" vertex="1" parent="sys">
+          <mxGeometry x="30" y="160" width="220" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Componente 2: Almacenamiento y Categorización -->
+        <mxCell id="comp_storage" value="«component»&#xa;&lt;b&gt;Módulo de Almacenamiento&lt;/b&gt;&#xa;&lt;i&gt;(Categorías: Img, Doc, Audio, Video)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;fontStyle=0;" vertex="1" parent="sys">
+          <mxGeometry x="290" y="60" width="220" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Componente 3: Historial y Auditoría -->
+        <mxCell id="comp_historial" value="«component»&#xa;&lt;b&gt;Módulo de Historial&lt;/b&gt;&#xa;&lt;i&gt;(Registro de Archivos Eliminados)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#fff9db;strokeColor=#fcc419;fontColor=#000000;fontStyle=0;" vertex="1" parent="sys">
+          <mxGeometry x="290" y="260" width="220" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Componente Externo: Sistema Operativo -->
+        <mxCell id="comp_so" value="«component»&#xa;&lt;b&gt;Sistema Operativo / Disco&lt;/b&gt;&#xa;&lt;i&gt;(Gestión de Espacio y FS)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f3d9fa;strokeColor=#be4bdb;fontColor=#000000;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="840" y="120" width="220" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Relaciones / Conexiones UML sin superposición -->
+        <mxCell id="e1" value="«use»" style="endArrow=open;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="1" source="comp_ui" target="comp_gestor">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e2" value="«use»" style="endArrow=open;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="sys" source="comp_gestor" target="comp_storage">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="e3" value="«use»" style="endArrow=open;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="sys" source="comp_gestor" target="comp_historial">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Conexión directa hacia el SO a la derecha (sin atravesar ningún otro módulo) -->
+        <mxCell id="e4" value="«delegate / FS System»" style="endArrow=open;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="1" source="comp_storage" target="comp_so">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

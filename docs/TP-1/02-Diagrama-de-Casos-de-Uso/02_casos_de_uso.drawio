@@ -1,0 +1,106 @@
+<mxfile host="Electron" modified="2026-09-27T23:25:00.000Z" agent="Antigravity" version="21.6.8" type="device">
+  <diagram id="diagram_cu" name="Diagrama de Casos de Uso">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Contenedor del Sistema / Límite de CU -->
+        <mxCell id="bound" value="Módulos: Gestión, Búsqueda y Almacenamiento" style="shape=rect;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;verticalAlign=top;fontStyle=1;fontColor=#111111;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="220" y="40" width="480" height="560" as="geometry" />
+        </mxCell>
+        
+        <!-- Actores -->
+        <mxCell id="actor_user" value="Usuario" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="40" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="actor_admin" value="Administrador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="400" width="40" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="actor_so" value="«Sistema»&#xa;Sistema Operativo" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="220" width="40" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Herencia entre actores -->
+        <mxCell id="rel_actor" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;strokeColor=#ffffff;" edge="1" parent="1" source="actor_admin" target="actor_user">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Casos de Uso (Forma de Óvalo UML con fuente oscura legible) -->
+        <mxCell id="cu_buscar" value="Buscar Archivos" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontStyle=1;" vertex="1" parent="bound">
+          <mxGeometry x="40" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="cu_crear" value="Crear Archivo" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontStyle=1;" vertex="1" parent="bound">
+          <mxGeometry x="40" y="140" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu_espacio" value="Verificar Espacio&#xa;en Disco" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;fontStyle=1;" vertex="1" parent="bound">
+          <mxGeometry x="280" y="140" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="cu_aviso" value="Notificar Falta&#xa;de Espacio" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=1;" vertex="1" parent="bound">
+          <mxGeometry x="280" y="240" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cu_eliminar" value="Eliminar Archivo" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontStyle=1;" vertex="1" parent="bound">
+          <mxGeometry x="40" y="320" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="cu_historial" value="Actualizar Historial&#xa;de Eliminados" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;fontStyle=1;" vertex="1" parent="bound">
+          <mxGeometry x="280" y="320" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="cu_modificar" value="Modificar Archivo" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontStyle=1;" vertex="1" parent="bound">
+          <mxGeometry x="40" y="440" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="cu_visibilidad" value="Cambiar Visibilidad&#xa;(Ocultar / Mostrar)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;fontStyle=1;" vertex="1" parent="bound">
+          <mxGeometry x="280" y="440" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Asociaciones de Actores a CU -->
+        <mxCell id="a1" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;" edge="1" parent="1" source="actor_user" target="cu_buscar">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="a2" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;" edge="1" parent="1" source="actor_user" target="cu_crear">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a3" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;" edge="1" parent="1" source="actor_user" target="cu_eliminar">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a4" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;" edge="1" parent="1" source="actor_user" target="cu_modificar">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Relaciones «include» -->
+        <mxCell id="inc1" value="«include»" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#000000;fontColor=#ffffff;strokeColor=#333333;" edge="1" parent="bound" source="cu_crear" target="cu_espacio">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="inc2" value="«include»" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#000000;fontColor=#ffffff;strokeColor=#333333;" edge="1" parent="bound" source="cu_eliminar" target="cu_historial">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Relaciones «extend» -->
+        <mxCell id="ext1" value="«extend»&#xa;[sin espacio]" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;labelBackgroundColor=#000000;fontColor=#ffffff;strokeColor=#333333;" edge="1" parent="bound" source="cu_aviso" target="cu_crear">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ext2" value="«extend»" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=#000000;fontColor=#ffffff;strokeColor=#333333;" edge="1" parent="bound" source="cu_visibilidad" target="cu_modificar">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Relación con Sistema Operativo -->
+        <mxCell id="a_so" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;" edge="1" parent="1" source="actor_so" target="cu_espacio">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

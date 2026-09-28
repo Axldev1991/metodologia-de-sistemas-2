@@ -1,0 +1,131 @@
+<mxfile host="65bd71144e">
+    <diagram id="diagram_act" name="Diagramas de Actividades (2 Casos de Uso)">
+        <mxGraphModel dx="875" dy="574" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title1" value="Caso de Uso 1: Crear y Almacenar Archivo" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="1080" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane_usr1" value="Usuario" style="shape=swimlane;startSize=25;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="70" width="320" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane_gestor1" value="Módulo de Gestión" style="shape=swimlane;startSize=25;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="70" width="440" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane_so1" value="Sistema Operativo / Disco" style="shape=swimlane;startSize=25;whiteSpace=wrap;html=1;fillColor=#f3d9fa;strokeColor=#be4bdb;fontColor=#000000;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="70" width="320" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="title2" value="Caso de Uso 2: Eliminar Archivo (Concurrencia Fork / Join)" style="text;html=1;strokeColor=none;fillColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="410" width="1080" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane_usr2" value="Usuario" style="shape=swimlane;startSize=25;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="440" width="320" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane_gestor2" value="Módulo de Gestión" style="shape=swimlane;startSize=25;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="440" width="440" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane_hist2" value="Módulo de Historial" style="shape=swimlane;startSize=25;whiteSpace=wrap;html=1;fillColor=#fff9db;strokeColor=#fcc419;fontColor=#000000;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="440" width="320" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="start1" value="" style="ellipse;html=1;shape=startState;fillColor=#ffffff;strokeColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="160" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="act_req" value="Solicitar creación de archivo&#10;(nombre, tipo, datos)" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#333333;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="150" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="act_val" value="Consultar espacio libre" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#333333;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="150" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="act_chk_so" value="Verificar espacio en disco" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#333333;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="150" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="dec1" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="465" y="230" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="act_err" value="Desplegar aviso: Sin espacio" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="635" y="225" width="155" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="act_save" value="Clasificar y guardar archivo" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="395" y="310" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="end1" value="" style="ellipse;html=1;shape=endState;fillColor=#ffffff;strokeColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="215" y="320" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="start2" value="" style="ellipse;html=1;shape=startState;fillColor=#ffffff;strokeColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="530" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="act_del_req" value="Solicitar baja de archivo" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#333333;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="520" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="fork1" value="" style="line;strokeWidth=6;html=1;fillColor=#ffffff;strokeColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="540" width="520" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="act_rem_fs" value="Retirar archivo de lista activa" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#333333;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="590" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="act_hist_log" value="Crear registro de baja&#10;con timestamp" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#333333;fontColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="590" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="join1" value="" style="line;strokeWidth=6;html=1;fillColor=#ffffff;strokeColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="680" width="520" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="act_conf" value="Notificar baja completada" style="html=1;whiteSpace=wrap;shape=mxgraph.bootstrap.rrect;rSize=10;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="710" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="end2" value="" style="ellipse;html=1;shape=endState;fillColor=#ffffff;strokeColor=#ffffff;" parent="1" vertex="1">
+                    <mxGeometry x="215" y="720" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="start1" target="act_req" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="act_req" target="act_val" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="act_val" target="act_chk_so" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="act_chk_so" target="dec1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="930" y="250"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ac5" value="[espacioOK == true]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;fontColor=#ffffff;labelBackgroundColor=#111111;strokeWidth=2;" parent="1" source="dec1" target="act_save" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac6" value="[espacio == false]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#b85450;fontColor=#b85450;labelBackgroundColor=#111111;strokeWidth=2;" parent="1" source="dec1" target="act_err" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ac7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="act_save" target="end1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ad1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="start2" target="act_del_req" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ad2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="act_del_req" target="fork1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ad3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="fork1" target="act_rem_fs" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ad4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.85;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="fork1" target="act_hist_log" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ad5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="act_rem_fs" target="join1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ad6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.85;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="act_hist_log" target="join1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ad7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.35;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="join1" target="act_conf" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ad8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;strokeColor=#ffffff;strokeWidth=2;" parent="1" source="act_conf" target="end2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
