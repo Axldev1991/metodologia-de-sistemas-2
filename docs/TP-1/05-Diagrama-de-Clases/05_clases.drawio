@@ -1,90 +1,103 @@
-<mxfile host="Electron" modified="2026-09-27T23:29:00.000Z" agent="Antigravity" version="21.6.8" type="device">
-  <diagram id="diagram_clases" name="Diagrama de Clases">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        
-        <mxCell id="c_gestor" value="&lt;b&gt;GestorArchivos&lt;/b&gt;&#xa;--&#xa;- espacioTotalBytes: long&#xa;- espacioDisponibleBytes: long&#xa;--&#xa;+ crearArchivo(nombre, tipo, tamano): boolean&#xa;+ eliminarArchivo(idArchivo): boolean&#xa;+ buscarPorNombre(nombre: String): List&lt;Archivo&gt;&#xa;+ buscarPorTipo(tipo: String): List&lt;Archivo&gt;&#xa;+ buscarPorFecha(fecha: Date): List&lt;Archivo&gt;" style="html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="40" y="80" width="320" height="160" as="geometry" />
-        </mxCell>
+<mxfile host="65bd71144e">
+    <diagram id="diagram_clases" name="Diagrama de Clases">
+        <mxGraphModel dx="1000" dy="700" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <!-- Clase Controladora: GestorArchivos -->
+                <mxCell id="c_gestor" value="&lt;b&gt;GestorArchivos&lt;/b&gt;&#10;--&#10;- espacioTotalBytes: long&#10;- espacioDisponibleBytes: long&#10;--&#10;+ crearArchivo(nombre, tipo, tamano): boolean&#10;+ eliminarArchivo(idArchivo): boolean&#10;+ buscarPorNombre(nombre: String): List&lt;Archivo&gt;&#10;+ buscarPorTipo(tipo: String): List&lt;Archivo&gt;&#10;+ buscarPorFecha(fecha: Date): List&lt;Archivo&gt;" style="html=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="80" width="320" height="160" as="geometry"/>
+                </mxCell>
+                
+                <!-- Superclase Abstracta: Archivo -->
+                <mxCell id="c_archivo" value="«abstract»&#10;&lt;b&gt;&lt;i&gt;Archivo&lt;/i&gt;&lt;/b&gt;&#10;--&#10;# id: String&#10;# nombre: String&#10;# fechaCreacion: Date&#10;# tamanoBytes: long&#10;# visibilidad: EstadoVisibilidad&#10;--&#10;+ getNombre(): String&#10;+ setNombre(nombre: String): void&#10;+ cambiarVisibilidad(estado: EstadoVisibilidad): void&#10;+ &lt;i&gt;obtenerTipo()&lt;/i&gt;: String" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="60" width="310" height="180" as="geometry"/>
+                </mxCell>
 
-        <mxCell id="c_archivo" value="«abstract»&#xa;&lt;b&gt;&lt;i&gt;Archivo&lt;/i&gt;&lt;/b&gt;&#xa;--&#xa;# id: String&#xa;# nombre: String&#xa;# fechaCreacion: Date&#xa;# tamanoBytes: long&#xa;# visibilidad: EstadoVisibilidad&#xa;--&#xa;+ getNombre(): String&#xa;+ setNombre(nombre: String): void&#xa;+ cambiarVisibilidad(estado: EstadoVisibilidad): void&#xa;+ &lt;i&gt;obtenerTipo()&lt;/i&gt;: String" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="480" y="60" width="310" height="180" as="geometry" />
-        </mxCell>
+                <!-- Subclases Especializadas (Herencia) -->
+                <mxCell id="c_imagen" value="&lt;b&gt;Imagen&lt;/b&gt;&#10;--&#10;- resolucion: String&#10;--&#10;+ obtenerTipo(): String" style="html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="320" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_doc" value="&lt;b&gt;Documento&lt;/b&gt;&#10;--&#10;- cantPaginas: int&#10;--&#10;+ obtenerTipo(): String" style="html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="320" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_video" value="&lt;b&gt;Video&lt;/b&gt;&#10;--&#10;- duracionSeg: int&#10;--&#10;+ obtenerTipo(): String" style="html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="320" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_audio" value="&lt;b&gt;Audio&lt;/b&gt;&#10;--&#10;- bitrate: int&#10;--&#10;+ obtenerTipo(): String" style="html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="900" y="320" width="160" height="90" as="geometry"/>
+                </mxCell>
 
-        <mxCell id="c_imagen" value="&lt;b&gt;Imagen&lt;/b&gt;&#xa;--&#xa;- resolucion: String&#xa;--&#xa;+ obtenerTipo(): String" style="html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="360" y="320" width="160" height="90" as="geometry" />
-        </mxCell>
+                <!-- Clases de Historial y Registro -->
+                <mxCell id="c_historial" value="&lt;b&gt;HistorialEliminados&lt;/b&gt;&#10;--&#10;- fechaUltimaActualizacion: Date&#10;--&#10;+ registrarBaja(reg: RegistroBaja): void&#10;+ obtenerHistorial(): List&lt;RegistroBaja&gt;" style="html=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="320" width="270" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_regbaja" value="&lt;b&gt;RegistroBaja&lt;/b&gt;&#10;--&#10;- idArchivo: String&#10;- nombreArchivo: String&#10;- fechaEliminacion: Date&#10;- tamanoBytes: long" style="html=1;whiteSpace=wrap;fillColor=#fff9db;strokeColor=#fcc419;fontColor=#000000;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="480" width="270" height="110" as="geometry"/>
+                </mxCell>
 
-        <mxCell id="c_doc" value="&lt;b&gt;Documento&lt;/b&gt;&#xa;--&#xa;- cantPaginas: int&#xa;--&#xa;+ obtenerTipo(): String" style="html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="540" y="320" width="160" height="90" as="geometry" />
-        </mxCell>
+                <!-- Clase de AccionUsuario -->
+                <mxCell id="c_accion" value="&lt;b&gt;AccionUsuario&lt;/b&gt;&#10;--&#10;- idAccion: String&#10;- tipoAccion: String&#10;- estado: EstadoAccion&#10;- fechaHora: Date&#10;--&#10;+ cambiarEstado(nuevoEstado: EstadoAccion): void" style="html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="480" width="310" height="120" as="geometry"/>
+                </mxCell>
 
-        <mxCell id="c_video" value="&lt;b&gt;Video&lt;/b&gt;&#xa;--&#xa;- duracionSeg: int&#xa;--&#xa;+ obtenerTipo(): String" style="html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="720" y="320" width="160" height="90" as="geometry" />
-        </mxCell>
+                <!-- Enumeraciones -->
+                <mxCell id="enum_vis" value="«enumeration»&#10;&lt;b&gt;EstadoVisibilidad&lt;/b&gt;&#10;--&#10;VISIBLE&#10;OCULTO" style="html=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="60" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="enum_acc" value="«enumeration»&#10;&lt;b&gt;EstadoAccion&lt;/b&gt;&#10;--&#10;EN_ESPERA&#10;CREADA&#10;EN_PROCESO&#10;FINALIZADA&#10;CON_ERROR" style="html=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="480" width="160" height="120" as="geometry"/>
+                </mxCell>
 
-        <mxCell id="c_audio" value="&lt;b&gt;Audio&lt;/b&gt;&#xa;--&#xa;- bitrate: int&#xa;--&#xa;+ obtenerTipo(): String" style="html=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="900" y="320" width="160" height="90" as="geometry" />
-        </mxCell>
+                <!-- RELACIONES -->
+                <!-- 1. Gestor -> Archivo (Composición) -->
+                <mxCell id="rel_g_a" value="1          contiene          *" style="endArrow=diamond;endFill=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" parent="1" source="c_gestor" target="c_archivo" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                
+                <!-- 2. Gestor -> Historial (Composición) -->
+                <mxCell id="rel_g_h" value="1       posee       1" style="endArrow=diamond;endFill=1;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" parent="1" source="c_gestor" target="c_historial" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
 
-        <mxCell id="c_historial" value="&lt;b&gt;HistorialEliminados&lt;/b&gt;&#xa;--&#xa;- fechaUltimaActualizacion: Date&#xa;--&#xa;+ registrarBaja(reg: RegistroBaja): void&#xa;+ obtenerHistorial(): List&lt;RegistroBaja&gt;" style="html=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="40" y="320" width="270" height="100" as="geometry" />
-        </mxCell>
+                <!-- 3. Historial -> RegistroBaja (Agregación) -->
+                <mxCell id="rel_h_r" value="1       registra       *" style="endArrow=diamond;endFill=0;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" parent="1" source="c_historial" target="c_regbaja" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
 
-        <mxCell id="c_regbaja" value="&lt;b&gt;RegistroBaja&lt;/b&gt;&#xa;--&#xa;- idArchivo: String&#xa;- nombreArchivo: String&#xa;- fechaEliminacion: Date&#xa;- tamanoBytes: long" style="html=1;whiteSpace=wrap;fillColor=#fff9db;strokeColor=#fcc419;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="40" y="480" width="270" height="110" as="geometry" />
-        </mxCell>
+                <!-- 4. Herencias Subclases -> Archivo -->
+                <mxCell id="h1" style="endArrow=block;endFill=0;html=1;rounded=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeColor=#ffffff;" parent="1" source="c_imagen" target="c_archivo" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="h2" style="endArrow=block;endFill=0;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#ffffff;" parent="1" source="c_doc" target="c_archivo" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="h3" style="endArrow=block;endFill=0;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeColor=#ffffff;" parent="1" source="c_video" target="c_archivo" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="h4" style="endArrow=block;endFill=0;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;strokeColor=#ffffff;" parent="1" source="c_audio" target="c_archivo" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
 
-        <mxCell id="c_accion" value="&lt;b&gt;AccionUsuario&lt;/b&gt;&#xa;--&#xa;- idAccion: String&#xa;- tipoAccion: String&#xa;- estado: EstadoAccion&#xa;- fechaHora: Date&#xa;--&#xa;+ cambiarEstado(nuevoEstado: EstadoAccion): void" style="html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="480" y="480" width="310" height="120" as="geometry" />
-        </mxCell>
+                <!-- 5. Gestor -> AccionUsuario (Asociación) -->
+                <mxCell id="rel_gest_acc" value="1       ejecuta       *" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" parent="1" source="c_gestor" target="c_accion" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="340" y="540"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
 
-        <mxCell id="enum_vis" value="«enumeration»&#xa;&lt;b&gt;EstadoVisibilidad&lt;/b&gt;&#xa;--&#xa;VISIBLE&#xa;OCULTO" style="html=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="840" y="60" width="160" height="90" as="geometry" />
-        </mxCell>
-        
-        <mxCell id="enum_acc" value="«enumeration»&#xa;&lt;b&gt;EstadoAccion&lt;/b&gt;&#xa;--&#xa;EN_ESPERA&#xa;CREADA&#xa;EN_PROCESO&#xa;FINALIZADA&#xa;CON_ERROR" style="html=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;align=left;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="840" y="480" width="160" height="120" as="geometry" />
-        </mxCell>
+                <!-- 6. Dependencias a Enumeraciones (CONECTADAS) -->
+                <mxCell id="dep_archivo_enum" value="«use»" style="endArrow=open;endSize=8;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" parent="1" source="c_archivo" target="enum_vis" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dep_accion_enum" value="«use»" style="endArrow=open;endSize=8;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" parent="1" source="c_accion" target="enum_acc" edge="1">
+                    <mxGeometry width="160" relative="1" as="geometry"/>
+                </mxCell>
 
-        <!-- Relaciones UML Estándar -->
-        <mxCell id="rel_g_a" value="1          contiene          *" style="endArrow=diamond;endFill=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="1" source="c_gestor" target="c_archivo">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="rel_g_h" value="1       posee       1" style="endArrow=diamond;endFill=1;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="1" source="c_gestor" target="c_historial">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="rel_h_r" value="1       registra       *" style="endArrow=diamond;endFill=0;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="1" source="c_historial" target="c_regbaja">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="h1" style="endArrow=block;endFill=0;html=1;rounded=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeColor=#ffffff;" edge="1" parent="1" source="c_imagen" target="c_archivo">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="h2" style="endArrow=block;endFill=0;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#ffffff;" edge="1" parent="1" source="c_doc" target="c_archivo">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="h3" style="endArrow=block;endFill=0;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeColor=#ffffff;" edge="1" parent="1" source="c_video" target="c_archivo">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="h4" style="endArrow=block;endFill=0;html=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;strokeColor=#ffffff;" edge="1" parent="1" source="c_audio" target="c_archivo">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- AccionUsuario ruteado ortogonalmente para evitar tocar Imagen -->
-        <mxCell id="rel_gest_acc" value="1       ejecuta       *" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="1" source="c_gestor" target="c_accion">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="340" y="540" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-
-      </root>
-    </mxGraphModel>
-  </diagram>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>
