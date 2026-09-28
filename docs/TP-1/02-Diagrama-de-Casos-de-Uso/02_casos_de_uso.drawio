@@ -1,53 +1,53 @@
 <mxfile host="65bd71144e">
     <diagram id="diagram_cu" name="Diagrama de Casos de Uso">
-        <mxGraphModel dx="741" dy="376" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1045" dy="574" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="actor_user" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Usuario" vertex="1">
-                    <mxGeometry height="60" width="30" x="50" y="200" as="geometry"/>
+                <mxCell id="actor_user" value="Usuario" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="180" width="40" height="75" as="geometry"/>
                 </mxCell>
-                <mxCell id="actor_so" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Sistema Operativo" vertex="1">
-                    <mxGeometry height="60" width="30" x="50" y="70" as="geometry"/>
+                <mxCell id="actor_so" value="«Sistema»&#10;Sistema Operativo" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="682" y="38" width="40" height="75" as="geometry"/>
                 </mxCell>
-                <mxCell id="uc_eliminar" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Eliminar Archivo" vertex="1">
-                    <mxGeometry height="60" width="120" x="200" y="300" as="geometry"/>
+                <mxCell id="eeY88F9y-T8qy8Rv1LHI-2" value="&lt;font color=&quot;#000000&quot;&gt;Gestor de Archivos&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fillColor=#ffffff;strokeColor=#333333;fontStyle=1;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="20" width="490" height="380" as="geometry"/>
                 </mxCell>
-                <mxCell id="uc_historial" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Actualizar Historial de Eliminados" vertex="1">
-                    <mxGeometry height="60" width="140" x="450" y="300" as="geometry"/>
+                <mxCell id="uc_notificar" value="&lt;font color=&quot;#000000&quot;&gt;Notificar Falta de Espacio&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" parent="eeY88F9y-T8qy8Rv1LHI-2" vertex="1">
+                    <mxGeometry x="175" y="50" width="140" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="rel_user_crear" edge="1" parent="1" source="actor_user" style="endArrow=none;html=1;rounded=0;" target="uc_crear">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="uc_crear" value="&lt;font color=&quot;#000000&quot;&gt;Crear Archivo&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" parent="eeY88F9y-T8qy8Rv1LHI-2" vertex="1">
+                    <mxGeometry x="45" y="160" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="rel_user_eliminar" edge="1" parent="1" source="actor_user" style="endArrow=none;html=1;rounded=0;" target="uc_eliminar">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="uc_verificar" value="&lt;font color=&quot;#000000&quot;&gt;Verificar Espacio en Disco&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" parent="eeY88F9y-T8qy8Rv1LHI-2" vertex="1">
+                    <mxGeometry x="305" y="160" width="140" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="rel_so_verificar" edge="1" parent="1" source="actor_so" style="endArrow=none;html=1;rounded=0;" target="uc_crear">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="rel_eliminar_historial" edge="1" parent="1" source="uc_eliminar" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uc_historial" value="«include»">
-                    <mxGeometry relative="1" x="-0.0769" y="10" as="geometry">
+                <mxCell id="rel_crear_verificar" value="«include»" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="eeY88F9y-T8qy8Rv1LHI-2" source="uc_crear" target="uc_verificar" edge="1">
+                    <mxGeometry x="-0.0769" y="10" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="eeY88F9y-T8qy8Rv1LHI-2" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" value="Gestor de Archivos" vertex="1">
-                    <mxGeometry height="380" width="500" x="150" as="geometry"/>
+                <mxCell id="rel_notificar_crear" value="«extend»" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="eeY88F9y-T8qy8Rv1LHI-2" source="uc_notificar" target="uc_crear" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="uc_verificar" parent="eeY88F9y-T8qy8Rv1LHI-2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Verificar Espacio en Disco" vertex="1">
-                    <mxGeometry height="60" width="140" x="300" y="160" as="geometry"/>
+                <mxCell id="uc_eliminar" value="&lt;font color=&quot;#000000&quot;&gt;Eliminar Archivo&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="195" y="300" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="uc_crear" parent="eeY88F9y-T8qy8Rv1LHI-2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Crear Archivo" vertex="1">
-                    <mxGeometry height="60" width="120" x="50" y="160" as="geometry"/>
+                <mxCell id="uc_historial" value="&lt;font color=&quot;#000000&quot;&gt;Actualizar Historial de Eliminados&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="455" y="300" width="140" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="rel_crear_verificar" edge="1" parent="eeY88F9y-T8qy8Rv1LHI-2" source="uc_crear" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uc_verificar" value="«include»">
-                    <mxGeometry relative="1" x="-0.0769" y="10" as="geometry">
+                <mxCell id="rel_eliminar_historial" value="«include»" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="uc_eliminar" target="uc_historial" edge="1">
+                    <mxGeometry x="-0.0769" y="10" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="uc_notificar" parent="eeY88F9y-T8qy8Rv1LHI-2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Notificar Falta de Espacio" vertex="1">
-                    <mxGeometry height="60" width="140" x="180" y="60" as="geometry"/>
+                <mxCell id="rel_user_crear" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="actor_user" target="uc_crear" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="rel_notificar_crear" edge="1" parent="eeY88F9y-T8qy8Rv1LHI-2" source="uc_notificar" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="uc_crear" value="«extend»">
+                <mxCell id="rel_user_eliminar" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="actor_user" target="uc_eliminar" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rel_so_verificar" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="actor_so" target="uc_crear" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
