@@ -1,58 +1,107 @@
-<mxfile host="Electron" modified="2026-09-27T23:26:00.000Z" agent="Antigravity" version="21.6.8" type="device">
-  <diagram id="diagram_1" name="Diagrama de Componentes - Gestor de Archivos">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        
-        <!-- Contenedor del Sistema -->
-        <mxCell id="sys" value="Sistema Gestor de Archivos" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=25;fillColor=#ffffff;fontColor=#111111;strokeColor=#666666;fontStyle=1;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="260" y="60" width="540" height="420" as="geometry" />
-        </mxCell>
-        
-        <!-- Componente Externo: UI -->
-        <mxCell id="comp_ui" value="«component»&#xa;&lt;b&gt;Interfaz de Usuario&lt;/b&gt;&#xa;&lt;i&gt;(Cliente / GUI / CLI)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="40" y="230" width="170" height="80" as="geometry" />
-        </mxCell>
-        
-        <!-- Componente 1: Gestión y Búsqueda -->
-        <mxCell id="comp_gestor" value="«component»&#xa;&lt;b&gt;Módulo de Gestión y Búsqueda&lt;/b&gt;&#xa;&lt;i&gt;(Creación, Búsqueda, Filtros, Visibilidad)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontStyle=0;" vertex="1" parent="sys">
-          <mxGeometry x="30" y="160" width="220" height="80" as="geometry" />
-        </mxCell>
-        
-        <!-- Componente 2: Almacenamiento y Categorización -->
-        <mxCell id="comp_storage" value="«component»&#xa;&lt;b&gt;Módulo de Almacenamiento&lt;/b&gt;&#xa;&lt;i&gt;(Categorías: Img, Doc, Audio, Video)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;fontStyle=0;" vertex="1" parent="sys">
-          <mxGeometry x="290" y="60" width="220" height="80" as="geometry" />
-        </mxCell>
-        
-        <!-- Componente 3: Historial y Auditoría -->
-        <mxCell id="comp_historial" value="«component»&#xa;&lt;b&gt;Módulo de Historial&lt;/b&gt;&#xa;&lt;i&gt;(Registro de Archivos Eliminados)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#fff9db;strokeColor=#fcc419;fontColor=#000000;fontStyle=0;" vertex="1" parent="sys">
-          <mxGeometry x="290" y="260" width="220" height="80" as="geometry" />
-        </mxCell>
-        
-        <!-- Componente Externo: Sistema Operativo -->
-        <mxCell id="comp_so" value="«component»&#xa;&lt;b&gt;Sistema Operativo / Disco&lt;/b&gt;&#xa;&lt;i&gt;(Gestión de Espacio y FS)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f3d9fa;strokeColor=#be4bdb;fontColor=#000000;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="840" y="120" width="220" height="80" as="geometry" />
-        </mxCell>
-        
-        <!-- Relaciones / Conexiones UML sin superposición -->
-        <mxCell id="e1" value="«use»" style="endArrow=open;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="1" source="comp_ui" target="comp_gestor">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-        
-        <mxCell id="e2" value="«use»" style="endArrow=open;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="sys" source="comp_gestor" target="comp_storage">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-        
-        <mxCell id="e3" value="«use»" style="endArrow=open;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="sys" source="comp_gestor" target="comp_historial">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
+<mxfile host="65bd71144e">
+    <diagram id="diagram_1" name="Diagrama de Componentes - Gestor de Archivos">
+        <mxGraphModel dx="1100" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <!-- Contenedor Principal del Sistema -->
+                <mxCell id="sys" value="Sistema Gestor de Archivos" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=25;fillColor=#ffffff;fontColor=#111111;strokeColor=#666666;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="50" width="620" height="390" as="geometry"/>
+                </mxCell>
+                
+                <!-- Componentes Internos -->
+                <mxCell id="comp_gestor" value="«component»&#10;&lt;b&gt;Módulo de Gestión y Búsqueda&lt;/b&gt;&#10;&lt;i&gt;(Creación, Búsqueda, Filtros, Visibilidad)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;fontStyle=0;" parent="sys" vertex="1">
+                    <mxGeometry x="70" y="155" width="210" height="80" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="comp_storage" value="«component»&#10;&lt;b&gt;Módulo de Almacenamiento&lt;/b&gt;&#10;&lt;i&gt;(Categorías: Img, Doc, Audio, Video)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;fontStyle=0;" parent="sys" vertex="1">
+                    <mxGeometry x="370" y="55" width="210" height="80" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="comp_historial" value="«component»&#10;&lt;b&gt;Módulo de Historial&lt;/b&gt;&#10;&lt;i&gt;(Registro de Archivos Eliminados)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#fff9db;strokeColor=#fcc419;fontColor=#000000;fontStyle=0;" parent="sys" vertex="1">
+                    <mxGeometry x="370" y="255" width="210" height="80" as="geometry"/>
+                </mxCell>
 
-        <!-- Conexión directa hacia el SO a la derecha (sin atravesar ningún otro módulo) -->
-        <mxCell id="e4" value="«delegate / FS System»" style="endArrow=open;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#ffffff;fontColor=#ffffff;" edge="1" parent="1" source="comp_storage" target="comp_so">
-          <mxGeometry width="160" relative="1" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
+                <!-- INTERFAZ 1: IGestionArchivos (Provista por Gestor, Requerida por UI) -->
+                <mxCell id="lbl_igestion" value="«interface»&#10;&lt;b&gt;IGestionArchivos&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=0;fontSize=10;fontColor=#2b579a;" parent="sys" vertex="1">
+                    <mxGeometry x="-15" y="145" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="lolipop_gestor" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#2b579a;strokeWidth=2;" parent="sys" vertex="1">
+                    <mxGeometry x="30" y="188" width="14" height="14" as="geometry"/>
+                </mxCell>
+                <mxCell id="socket_gestor" value="" style="shape=mxgraph.sysml.socket;html=1;fillColor=none;strokeColor=#2b579a;strokeWidth=2;pointerEvents=1;direction=west;" parent="sys" vertex="1">
+                    <mxGeometry x="18" y="185" width="12" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="link_gestor_prov" style="endArrow=none;html=1;rounded=0;strokeColor=#2b579a;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="sys" source="lolipop_gestor" target="comp_gestor" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- INTERFAZ 2: IAlmacenamiento (Provista por Storage, Requerida por Gestor) -->
+                <mxCell id="lbl_istorage" value="«interface»&#10;&lt;b&gt;IAlmacenamiento&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=0;fontSize=10;fontColor=#d79b00;" parent="sys" vertex="1">
+                    <mxGeometry x="280" y="50" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="lolipop_storage" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#d79b00;strokeWidth=2;" parent="sys" vertex="1">
+                    <mxGeometry x="330" y="88" width="14" height="14" as="geometry"/>
+                </mxCell>
+                <mxCell id="socket_storage" value="" style="shape=mxgraph.sysml.socket;html=1;fillColor=none;strokeColor=#d79b00;strokeWidth=2;pointerEvents=1;direction=west;" parent="sys" vertex="1">
+                    <mxGeometry x="318" y="85" width="12" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="link_storage_prov" style="endArrow=none;html=1;rounded=0;strokeColor=#d79b00;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="sys" source="lolipop_storage" target="comp_storage" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="link_gestor_to_storage" style="endArrow=none;html=1;rounded=0;strokeColor=#d79b00;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.8;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;edgeStyle=orthogonalEdgeStyle;" parent="sys" source="comp_gestor" target="socket_storage" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- INTERFAZ 3: IHistorial (Provista por Historial, Requerida por Gestor) -->
+                <mxCell id="lbl_ihistorial" value="«interface»&#10;&lt;b&gt;IHistorial&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=0;fontSize=10;fontColor=#fcc419;" parent="sys" vertex="1">
+                    <mxGeometry x="290" y="250" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="lolipop_historial" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#d69e2e;strokeWidth=2;" parent="sys" vertex="1">
+                    <mxGeometry x="330" y="288" width="14" height="14" as="geometry"/>
+                </mxCell>
+                <mxCell id="socket_historial" value="" style="shape=mxgraph.sysml.socket;html=1;fillColor=none;strokeColor=#d69e2e;strokeWidth=2;pointerEvents=1;direction=west;" parent="sys" vertex="1">
+                    <mxGeometry x="318" y="285" width="12" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="link_historial_prov" style="endArrow=none;html=1;rounded=0;strokeColor=#d69e2e;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="sys" source="lolipop_historial" target="comp_historial" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="link_gestor_to_historial" style="endArrow=none;html=1;rounded=0;strokeColor=#d69e2e;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.8;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;edgeStyle=orthogonalEdgeStyle;" parent="sys" source="comp_gestor" target="socket_historial" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- Componente Externo 1: Interfaz de Usuario -->
+                <mxCell id="comp_ui" value="«component»&#10;&lt;b&gt;Interfaz de Usuario&lt;/b&gt;&#10;&lt;i&gt;(Cliente / GUI / CLI)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontStyle=0;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="205" width="170" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="link_ui_to_gestor" style="endArrow=none;html=1;rounded=0;strokeColor=#2b579a;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="comp_ui" target="socket_gestor" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- Componente Externo 2: Sistema Operativo -->
+                <mxCell id="comp_so" value="«component»&#10;&lt;b&gt;Sistema Operativo / Disco&lt;/b&gt;&#10;&lt;i&gt;(Gestión de Espacio y FS)&lt;/i&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#f3d9fa;strokeColor=#be4bdb;fontColor=#000000;fontStyle=0;" parent="1" vertex="1">
+                    <mxGeometry x="940" y="105" width="210" height="80" as="geometry"/>
+                </mxCell>
+                
+                <!-- INTERFAZ 4: ISistemaOperativo (Provista por SO, Requerida por Storage) -->
+                <mxCell id="lbl_iso" value="«interface»&#10;&lt;b&gt;ISistemaOperativo&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=0;fontSize=10;fontColor=#be4bdb;" parent="1" vertex="1">
+                    <mxGeometry x="835" y="100" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="lolipop_so" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffffff;strokeColor=#be4bdb;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="895" y="138" width="14" height="14" as="geometry"/>
+                </mxCell>
+                <mxCell id="socket_so" value="" style="shape=mxgraph.sysml.socket;html=1;fillColor=none;strokeColor=#be4bdb;strokeWidth=2;pointerEvents=1;direction=west;" parent="1" vertex="1">
+                    <mxGeometry x="883" y="135" width="12" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="link_so_prov" style="endArrow=none;html=1;rounded=0;strokeColor=#be4bdb;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="lolipop_so" target="comp_so" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="link_storage_to_so" style="endArrow=none;html=1;rounded=0;strokeColor=#be4bdb;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="comp_storage" target="socket_so" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>
